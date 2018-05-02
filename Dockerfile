@@ -1,13 +1,19 @@
-FROM scratch
+FROM ubuntu:16.04
 
 MAINTAINER jecnua "fabrizio.sabatini.it@gmail.com"
 
-# RUN
+RUN mkdir -p /src
+
+COPY package.json package.json
+COPY /src/* /src/
+COPY Dockerfile /Dockerfile
+
+RUN apt-get update && \
+  apt-get install -y npm nodejs curl wget nano && \
+  npm install && \
+  npm install elastic-apm-node --save
 
 # ENV
-
-# COPY
-COPY Dockerfile /Dockerfile
 
 # Metadata params
 ARG BUILD_DATE
@@ -26,3 +32,5 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.schema-version="1.0" \
   com.jecnua.docker.dockerfile="/Dockerfile" \
   com.jecnua.license="MIT"
+
+CMD [ "npm", "start" ]
