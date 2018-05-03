@@ -2,10 +2,10 @@ var initTracer = require('jaeger-client').initTracer;
 
 // See schema https://github.com/jaegertracing/jaeger-client-node/blob/master/src/configuration.js#L37
 var config = {
-  'serviceName': 'my-awesome-service',
+  'serviceName': 'test-nodejs-jaeger-tracing',
   'reporter': {
     'logSpans': true,
-    'agentHost': 'localhost',
+    'agentHost': 'docker.for.mac.localhost',
     'agentPort': 6832
   },
   'sampler': {
@@ -15,7 +15,7 @@ var config = {
 };
 var options = {
   'tags': {
-    'my-awesome-service.version': '1.1.2'
+    'test-nodejs-jaeger-tracing': '1.0.0'
   }
   //'metrics': metrics,
   //'logger': logger
@@ -37,5 +37,5 @@ app.get('/', (req, res) => {
 const server = app.listen(8000, () => {
     var host = server.address().address;
     var port = server.address().port;
-    console.log('Service_1 listening at http://%s:%s', host, port);
+    console.log('Service listening at http://localhost:%s', host, port);
 });
