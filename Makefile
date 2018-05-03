@@ -82,5 +82,9 @@ docker_push:
 	docker push $(URL_REPO):latest
 	docker push $(URL_REPO):$(DOCKER_TAG)
 
+bump:
+	git tag v$(CODE_VERSION)
+	git push --tags
+
 output:
 	@echo Docker Image: $(DOCKER_IMAGE):$(DOCKER_TAG)
