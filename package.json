@@ -1,8 +1,8 @@
 {
-  "name": "example-es",
-  "version": "0.1.0",
+  "name": "tracing-nodejs",
+  "version": "0.2.0",
   "main": "src",
-  "description": "es example",
+  "description": "This repo contains a simple test of jaeger tracing",
   "scripts": {
     "start": "nodejs src"
   },
@@ -10,7 +10,8 @@
     "express": "4.16.3",
     "jaeger-client": "3.10.0",
     "npm": "^6.0.0",
-    "sleep": "5.1.1"
+    "sleep": "5.1.1",
+    "validate-npm-package": "^1.0.5"
   },
   "devDependencies": {},
   "keywords": [
@@ -18,6 +19,10 @@
     "nodejs",
     "node"
   ],
-  "author": "",
-  "license": "MIT"
+  "bugs": "",
+  "files": [],
+  "author": "jecnua",
+  "license": "MIT",
+  "homepage": "https://github.com/jecnua/tracing-nodejs",
+  "repository": "https://github.com/jecnua/tracing-nodejs"
 }

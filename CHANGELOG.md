@@ -8,6 +8,7 @@
 
 - Added travis
 - Better README
+- Linted package.json
 
 ### Changes
 
