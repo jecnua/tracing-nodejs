@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "express": "4.15.3",
-    "jaeger-client": "3.10.0"
+    "jaeger-client": "3.10.0",
+    "npm": "^6.0.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "keywords": [
     "tracing",
     "nodejs",

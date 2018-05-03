@@ -27,10 +27,16 @@ const app = express();
 
 // Handle a GET request on the root path
 app.get('/', (req, res) => {
-    const span = tracer.startSpan('http_request');
+    const parentSpan = tracer.startSpan('http_request');
     res.send('Hello Jaeger');
-    span.log({'event': 'request_end'});
-    span.finish();
+    parentSpan.log({'event': 'request_end'});
+    ////
+    const childSpan = tracer.startSpan('child-test', { childOf: parentSpan });
+    childSpan.addTags({ aCall: 1 });
+    await sleep(getRandomInt(200, 1000));
+    childSpan.finish();
+    ////
+    parentSpan.finish();
 });
 
 // Set up server
