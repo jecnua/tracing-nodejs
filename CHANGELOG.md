@@ -6,6 +6,9 @@
 
 ### Features
 
+- Added travis
+- Better README
+
 ### Changes
 
 ### Bugfixes
