@@ -10,11 +10,29 @@
 ![ubuntu-1604](https://img.shields.io/badge/ubuntu-18.04-green.svg)
 ![node.js](https://img.shields.io/badge/node.js-v8.10.0-green.svg)
 
+This repo contains a simple test of jaeger tracing with a nodejs express
+application.
+
+## Resources
+
 - [http://label-schema.org/rc1/](http://label-schema.org/rc1/)
+- https://www.npmjs.com/package/jaeger-client
+- https://github.com/jaegertracing/jaeger-client-node
 
-- [[https://www.npmjs.com/package/jaeger-client]]
-- [[https://github.com/jaegertracing/jaeger-client-node]]
+## Demo
 
-# TODO
+Run:
+
+    make
+    ./run_locally.sh
+
+## Test
+
+Run:
+
+    make
+    ./test_locally.sh
+
+## TODO
 
 - Add travis

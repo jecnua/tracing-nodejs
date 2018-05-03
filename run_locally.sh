@@ -1,8 +1,10 @@
 #!/bin/sh
 
 docker network create nodejs_tracing
+
 docker stop jaeger
 docker stop tracing-nodejs
+
 docker run --rm -d --net nodejs_tracing --name jaeger \
 -e \
   COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
@@ -14,4 +16,5 @@ docker run --rm -d --net nodejs_tracing --name jaeger \
   -p 14268:14268 \
   -p 9411:9411 \
   jaegertracing/all-in-one:latest
+
 docker run --rm -d --net nodejs_tracing --name tracing-nodejs -p 8000:8000 jecnua/tracing-nodejs:dev-latest
