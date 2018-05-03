@@ -7,5 +7,5 @@ do
   shellcheck "$file"
 done <   <(find . -iname '*.sh' -not -path '*/\.*' -type f -print0)
 
-dgoss run --rm -d --net nodejs_tracing \
+dgoss run --rm -d \
   jecnua/tracing-nodejs:dev-latest

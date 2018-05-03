@@ -10,8 +10,7 @@ COPY Dockerfile /Dockerfile
 
 RUN apt-get update && \
   apt-get install -y npm nodejs curl wget nano && \
-  npm install && \
-  npm install elastic-apm-node --save
+  npm install
 
 # ENV
 
