@@ -1,6 +1,6 @@
 {
   "name": "example-es",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "src",
   "description": "es example",
   "scripts": {
@@ -9,7 +9,8 @@
   "dependencies": {
     "express": "4.15.3",
     "jaeger-client": "3.10.0",
-    "npm": "^6.0.0"
+    "npm": "^6.0.0",
+    "sleep": "5.1.1"
   },
   "devDependencies": {},
   "keywords": [

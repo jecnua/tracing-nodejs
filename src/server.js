@@ -15,7 +15,7 @@ var config = {
 };
 var options = {
   'tags': {
-    'test-nodejs-jaeger-tracing': '1.0.0'
+    'test-nodejs-jaeger-tracing': '2.0.0'
   }
   //'metrics': metrics,
   //'logger': logger
@@ -33,11 +33,20 @@ app.get('/', (req, res) => {
     ////
     const childSpan = tracer.startSpan('child-test', { childOf: parentSpan });
     childSpan.addTags({ aCall: 1 });
-    await sleep(getRandomInt(200, 1000));
+    // test()
     childSpan.finish();
     ////
     parentSpan.finish();
 });
+
+// function getRandomInt(min, max) {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+
+// async function test() {
+//     var sleep = require('sleep');
+//     await sleep.sleep(getRandomInt(200, 1000));
+// }
 
 // Set up server
 const server = app.listen(8000, () => {

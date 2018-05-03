@@ -1,8 +1,15 @@
-# command:
-#   curl localhost:80:
-#     title: Checking main entrypoint
-#     exit-status: 0
-#     stdout:
-#     - 'example'
-#     stderr: []
-#     timeout: 1000
+command:
+  curl localhost:8000:
+    title: Checking main entrypoint
+    exit-status: 0
+    stdout:
+    - 'Hello Jaeger'
+    stderr: []
+    timeout: 1000
+  nodejs --version:
+    title: Check nodejs version
+    exit-status: 0
+    stdout:
+    - 'v8.10.0'
+    stderr: []
+    timeout: 1000

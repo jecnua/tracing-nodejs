@@ -5,6 +5,10 @@ build: docker_build output
 
 # Build and push Docker image
 release: docker_build docker_push output
+	git tag v$(CODE_VERSION)
+	git push
+	git push --tags
+	@echo Remember to update the VERSION now
 
 gen-env:
 	./run.sh
@@ -81,10 +85,6 @@ docker_push:
 	docker tag $(URL_REPO):$(DOCKER_TAG) $(URL_REPO):latest
 	docker push $(URL_REPO):latest
 	docker push $(URL_REPO):$(DOCKER_TAG)
-
-bump:
-	git tag v$(CODE_VERSION)
-	git push --tags
 
 output:
 	@echo Docker Image: $(DOCKER_IMAGE):$(DOCKER_TAG)
