@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 (UNRELEASED)
+## 0.2.0
 
 ### BREAKING CHANGES
 
@@ -9,6 +9,7 @@
 - Added travis
 - Better README
 - Linted package.json
+- Added a remove all container script
 
 ### Changes
 
