@@ -1,6 +1,6 @@
 {
   "name": "tracing-nodejs",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "src",
   "description": "This repo contains a simple test of jaeger tracing",
   "scripts": {
@@ -11,7 +11,8 @@
     "jaeger-client": "3.10.0",
     "npm": "^6.0.0",
     "sleep": "5.1.1",
-    "validate-npm-package": "^1.0.5"
+    "validate-npm-package": "^1.0.5",
+    "express-opentracing": "0.1.1"
   },
   "devDependencies": {},
   "keywords": [

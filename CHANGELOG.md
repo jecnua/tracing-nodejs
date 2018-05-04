@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.0 (UNRELEASED)
+
+### BREAKING CHANGES
+
+### Features
+
+- Make it work with express-opentracing :D
+
+### Changes
+
+### Bugfixes
+
+### Known bugs
+
 ## 0.2.0
 
 ### BREAKING CHANGES

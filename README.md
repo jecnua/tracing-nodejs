@@ -35,5 +35,3 @@ Run:
     ./test_locally.sh
 
 ## TODO
-
-- Add travis

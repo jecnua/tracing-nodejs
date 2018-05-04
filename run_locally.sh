@@ -17,4 +17,4 @@ docker run --rm -d --net nodejs_tracing --name jaeger \
   -p 9411:9411 \
   jaegertracing/all-in-one:latest
 
-docker run --rm -d --net nodejs_tracing --name tracing-nodejs -p 8000:8000 jecnua/tracing-nodejs:dev-latest
+docker run --rm -it --net nodejs_tracing --name tracing-nodejs -p 8000:8000 jecnua/tracing-nodejs:dev-latest

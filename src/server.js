@@ -1,6 +1,7 @@
-var initTracer = require('jaeger-client').initTracer;
+const opentracing = require('opentracing');
+const middleware = require('express-opentracing').default
+const express = require('express');
 
-// See schema https://github.com/jaegertracing/jaeger-client-node/blob/master/src/configuration.js#L37
 var config = {
   'serviceName': 'test-nodejs-jaeger-tracing',
   'reporter': {
@@ -15,40 +16,27 @@ var config = {
 };
 var options = {
   'tags': {
-    'test-nodejs-jaeger-tracing': '2.0.0'
+    'test-nodejs-jaeger-tracing': '0.3.0'
   }
-  //'metrics': metrics,
-  //'logger': logger
 };
-var tracer = initTracer(config, options);
 
-const express = require('express');
+var initTracer = require('jaeger-client').initTracer;
+var jaeger = initTracer(config, options);
 const app = express();
+app.use(middleware({tracer: jaeger}));
 
-// Handle a GET request on the root path
 app.get('/', (req, res) => {
-    const parentSpan = tracer.startSpan('http_request');
-    res.send('Hello Jaeger');
-    parentSpan.log({'event': 'request_end'});
-    ////
-    const childSpan = tracer.startSpan('child-test', { childOf: parentSpan });
-    childSpan.addTags({ aCall: 1 });
-    // test()
-    childSpan.finish();
-    ////
-    parentSpan.finish();
+    res.send('Hello world');
 });
 
-// function getRandomInt(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
+app.get('/home', (req, res) => {
+    res.send('Welcome home');
+});
 
-// async function test() {
-//     var sleep = require('sleep');
-//     await sleep.sleep(getRandomInt(200, 1000));
-// }
+app.get('/about', (req, res) => {
+    res.send('This is me');
+});
 
-// Set up server
 const server = app.listen(8000, () => {
     var host = server.address().address;
     var port = server.address().port;
