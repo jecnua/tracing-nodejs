@@ -12,6 +12,8 @@
 
 ### Changes
 
+- Updated express to 4.16.3
+
 ### Bugfixes
 
 ### Known bugs

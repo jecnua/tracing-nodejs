@@ -18,3 +18,8 @@ before_install:
 script:
 - echo "y" | travis lint
 - ./test_travis.sh # Will also test with shellcheck - https://github.com/koalaman/shellcheck#travis-ci
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
