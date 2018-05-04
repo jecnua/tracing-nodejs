@@ -19,6 +19,7 @@ application.
 - [http://label-schema.org/rc1/](http://label-schema.org/rc1/)
 - https://www.npmjs.com/package/jaeger-client
 - https://github.com/jaegertracing/jaeger-client-node
+- https://github.com/opentracing-contrib/javascript-express
 
 ## Demo
 

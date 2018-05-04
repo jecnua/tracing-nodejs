@@ -21,9 +21,9 @@ var options = {
 };
 
 var initTracer = require('jaeger-client').initTracer;
-var jaeger = initTracer(config, options);
+var a_tracer = initTracer(config, options);
 const app = express();
-app.use(middleware({tracer: jaeger}));
+app.use(middleware({tracer: a_tracer}));
 
 app.get('/', (req, res) => {
     res.send('Hello world');
@@ -34,6 +34,10 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
+    const childSpan = a_tracer.startSpan('child-test', { childOf: req.span });
+    childSpan.addTags({ aCall: 1 });
+    // test()
+    childSpan.finish();
     res.send('This is me');
 });
 
