@@ -14,6 +14,12 @@
 This repo contains a simple test of jaeger tracing with a nodejs express
 application.
 
+## Scope
+
+I am trying to test Jaeger tracing with node.js automatic instrumentation of the express framework. I successfully attached the tracing to express and calls to paths are traced correctly.
+
+The next step will be to try and see how to create span and attach them to existing traces coming from other services.
+
 ## Resources
 
 - [http://label-schema.org/rc1/](http://label-schema.org/rc1/)
