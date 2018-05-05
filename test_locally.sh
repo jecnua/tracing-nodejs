@@ -6,8 +6,13 @@ do
   shellcheck "$file"
 done <   <(find . -iname '*.sh' -not -path '*/\.*' -not -path './node_modules/*' -type f -print0)
 
+# Lint travis
 travis lint .travis.yml
+
+# Validate npm config
 validate-npm-package
+
+# Validate docker
 dockerlint
 
 dgoss run --rm -d --net nodejs_tracing \
