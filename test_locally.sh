@@ -15,5 +15,5 @@ validate-npm-package
 # Validate docker
 dockerlint
 
-dgoss run --rm -d --net nodejs_tracing \
+dgoss run --rm -d \
   jecnua/tracing-nodejs:dev-latest
