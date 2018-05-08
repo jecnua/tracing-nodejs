@@ -1,4 +1,4 @@
-const opentracing = require('opentracing');
+var opentracing = require('opentracing');
 const middleware = require('express-opentracing').default
 const express = require('express');
 
@@ -34,10 +34,24 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-    const childSpan = a_tracer.startSpan('child-test', { childOf: req.span });
+    const parentSpanContext = a_tracer.extract(opentracing.FORMAT_HTTP_HEADERS, req.headers)
+    const childSpan = a_tracer.startSpan('child-test', { childOf: parentSpanContext });
     childSpan.addTags({ aCall: 1 });
     // test()
     childSpan.finish();
+    res.send('This is me');
+});
+
+app.get('/error', (req, res) => {
+    const parentSpanContext = a_tracer.extract(FORMAT_HTTP_HEADERS, req.headers)
+    const childSpan = a_tracer.startSpan('child-test', { childOf: parentSpanContext });
+    childSpan.setTag(Tags.ERROR, true)
+    childSpan.setTag("test", "false")
+    childSpan.log({
+      event: 'error',
+      message: 'broken'
+    })
+    childSpan.finish()
     res.send('This is me');
 });
 

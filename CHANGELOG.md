@@ -7,6 +7,8 @@
 ### Features
 
 - Make it work with express-opentracing :D
+- Adding and error tracing endpoint
+- Trying the context passing between servers
 
 ### Changes
 
