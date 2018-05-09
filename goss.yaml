@@ -3,7 +3,7 @@ command:
     title: Checking main entrypoint
     exit-status: 0
     stdout:
-    - 'Hello Jaeger'
+    - 'Hello world'
     stderr: []
     timeout: 1000
   nodejs --version:
