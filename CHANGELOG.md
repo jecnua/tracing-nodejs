@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0
+
+### BREAKING CHANGES
+
+### Features
+
+- Adding prometheus & grafana
+
+### Changes
+
+### Bugfixes
+
+### Known bugs
+
 ## 0.3.1
 
 ### BREAKING CHANGES

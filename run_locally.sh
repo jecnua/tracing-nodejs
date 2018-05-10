@@ -30,6 +30,23 @@ docker run \
   -p 8000:8000 \
   jecnua/tracing-nodejs:dev-latest
 
+docker run --rm -d -p 9090:9090 \
+    --net nodejs_tracing \
+    -v "$(pwd)"/prometheus.yml:/etc/prometheus/prometheus.yml \
+    prom/prometheus
+
+docker run -d --rm --name=grafana --net nodejs_tracing \
+  -e 'GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel' \
+  -e 'GF_AUTH_ANONYMOUS_ENABLED=true' \
+  -e 'GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer' \
+  -e 'GF_SECURITY_ADMIN_PASSWORD=admin' \
+  -e 'GF_ANALYTICS_REPORTING_ENABLED=false' \
+  -v "$PWD"/providers.yml:/etc/grafana/provisioning/dashboards/providers.yaml:ro \
+  -v "$PWD"/jaeger.json:/var/lib/grafana/dashboards/jaeger.json:ro \
+  -v "$PWD"/prom.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro \
+  -p 3000:3000 \
+  grafana/grafana:5.1.2
+
 # docker run \
 #   --rm \
 #   -it \
