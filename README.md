@@ -26,6 +26,7 @@ The next step will be to try and see how to create span and attach them to exist
 - https://www.npmjs.com/package/jaeger-client
 - https://github.com/jaegertracing/jaeger-client-node
 - https://github.com/opentracing-contrib/javascript-express
+- https://github.com/jaegertracing/jaeger-client-python
 
 ## Demo
 
@@ -42,3 +43,6 @@ Run:
     ./test_locally.sh
 
 ## TODO
+
+- Add monitoring with grafana and prometheus
+- Run in in k8s

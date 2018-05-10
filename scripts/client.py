@@ -34,23 +34,22 @@ if __name__ == "__main__":
     with tracer.start_span('TestSpan') as span:
         span.log_kv({'event': 'test message', 'life': 42})
 
+        # This will wrap the span! amazing
         with tracer.start_span('ChildSpan', child_of=span) as child_span:
             child_span.log_kv({'event': 'down below'})
 
-        port = '8000'
-        path = 'about'
-        url = 'http://localhost:%s/%s' % (port, path)
+            port = '8000'
+            path = 'error'
+            url = 'http://localhost:%s/%s' % (port, path)
 
-        # span = get_current_span()
-        span.set_tag(tags.HTTP_METHOD, 'GET')
-        span.set_tag(tags.HTTP_URL, url)
-        # span.set_tag(tags.SPAN_KIND, tags.SPAN_KIND_RPC_CLIENT)
-        headers = {}
-        tracer.inject(span, Format.HTTP_HEADERS, headers)
+            # span = get_current_span()
+            span.set_tag(tags.HTTP_METHOD, 'GET')
+            span.set_tag(tags.HTTP_URL, url)
+            # span.set_tag(tags.SPAN_KIND, tags.SPAN_KIND_RPC_CLIENT)
+            headers = {}
+            tracer.inject(span, Format.HTTP_HEADERS, headers)
 
-        r = requests.get(url, params='test', headers=headers)
-        assert r.status_code == 200
-    # return r.text
+            r = requests.get(url, params='test', headers=headers)
 
     time.sleep(2)   # yield to IOLoop to flush the spans - https://github.com/jaegertracing/jaeger-client-python/issues/50
     tracer.close()  # flush any buffered spans

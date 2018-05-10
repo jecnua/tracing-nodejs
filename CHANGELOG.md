@@ -8,7 +8,7 @@
 
 - Make it work with express-opentracing :D
 - Adding and error tracing endpoint
-- Trying the context passing between servers
+- Created and example to test the context passing between two applications
 
 ### Changes
 
