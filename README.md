@@ -42,6 +42,10 @@ Run:
     make
     ./test_locally.sh
 
+## Knowns issue
+
+<trace-without-root-span> when calling all url togheter.
+
 ## TODO
 
 - Add monitoring with grafana and prometheus
