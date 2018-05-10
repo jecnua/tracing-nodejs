@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.1
+
+### BREAKING CHANGES
+
+### Features
+
+### Changes
+
+### Bugfixes
+
+- Fixed the tracer options in two routes.
+
+### Known bugs
+
 ## 0.3.0
 
 ### BREAKING CHANGES

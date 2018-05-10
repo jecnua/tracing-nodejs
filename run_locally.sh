@@ -40,9 +40,10 @@ docker run \
 #   jecnua/tracing-nodejs:dev-latest
 
 
-sleep 10
+# sleep 10
 
 curl localhost:8000/
 curl localhost:8000/home
 curl localhost:8000/child
+curl localhost:8000/child2
 curl localhost:8000/error

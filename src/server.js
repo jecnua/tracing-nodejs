@@ -34,7 +34,8 @@ app.get('/home', (req, res) => {
     res.send('Called /home');
     if (req.span) {
       req.span.addTags({ 'req': 'is_req' });
-      const childSpan = a_tracer.startSpan('child-test', { childOf: req.span })
+      second_tracer = initTracer(config, options);
+      const childSpan = second_tracer.startSpan('child-test', { childOf: req.span })
       childSpan.finish();
     }
     console.log('done');
@@ -45,7 +46,8 @@ app.get('/child', (req, res) => {
     // console.log(parentSpanContext);
     if (req.span) { // Is always here because we use automatic instrumentation
       // console.log(req.span.context());
-      const childSpan = a_tracer.startSpan('child-test', { childOf: req.span.context() }); // this is correct only if called with jaeger
+      second_tracer = initTracer(config, options);
+      const childSpan = second_tracer.startSpan('child-test', { childOf: req.span.context() }); // this is correct only if called with jaeger
       childSpan.addTags({ aCall: 1 });
       childSpan.finish();
     }
