@@ -8,52 +8,63 @@ local prometheus = grafana.prometheus;
 dashboard.new(
     "Jaeger standalone metrics",
     tags=["jaeger","prometheus"],
+    time_from='now-15m',
+    editable=true,
+    refresh='5s',
 )
 .addRow(
     row.new()
     .addPanel(
-      graphPanel.new(
-          'reporter_queue_length',
-          span=6,
-          format='short',
-          fill=0,
-          min=0,
-          decimals=2,
+      singlestat.new(
+          'Total traces',
+          format='none',
+          description='',
+          interval=null,
+          height=250,
           datasource='prometheus',
-          legend_values=true,
-          legend_min=false,
-          legend_max=false,
-          legend_current=true,
-          legend_total=false,
-          legend_avg=false,
-          legend_alignAsTable=true,
+          span=1,
+          min_span=null,
+          decimals=null,
+          valueName='avg',
+          valueFontSize='80%',
+          prefixFontSize='50%',
+          postfixFontSize='50%',
+          mappingType=1,
+          repeat=null,
+          repeatDirection=null,
+          prefix='',
+          postfix='',
         )
         .addTarget(
             prometheus.target(
-                "jaeger_standalone:jaeger:reporter_queue_length{}",
+                "sum(jaeger_standalone:jaeger:traces{})",
             )
         )
     )
     .addPanel(
-      graphPanel.new(
-          'spans_dropped',
-          span=6,
-          format='short',
-          fill=0,
-          min=0,
-          decimals=2,
+      singlestat.new(
+          'Spans dropped',
+          format='none',
+          description='',
+          interval=null,
+          height=250,
           datasource='prometheus',
-          legend_values=true,
-          legend_min=false,
-          legend_max=false,
-          legend_current=true,
-          legend_total=false,
-          legend_avg=false,
-          legend_alignAsTable=true,
+          span=1,
+          min_span=null,
+          decimals=null,
+          valueName='avg',
+          valueFontSize='80%',
+          prefixFontSize='50%',
+          postfixFontSize='50%',
+          mappingType=1,
+          repeat=null,
+          repeatDirection=null,
+          prefix='',
+          postfix='',
         )
         .addTarget(
             prometheus.target(
-                "jaeger_standalone:jaeger_collector:spans_dropped{}",
+                "sum(jaeger_standalone:jaeger_collector:spans_dropped{})",
             )
         )
     )
