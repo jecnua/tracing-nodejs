@@ -21,11 +21,11 @@ dashboard.new(
           decimals=2,
           datasource='prometheus',
           legend_values=true,
-          legend_min=true,
-          legend_max=true,
+          legend_min=false,
+          legend_max=false,
           legend_current=true,
           legend_total=false,
-          legend_avg=true,
+          legend_avg=false,
           legend_alignAsTable=true,
         )
         .addTarget(
@@ -44,11 +44,11 @@ dashboard.new(
           decimals=2,
           datasource='prometheus',
           legend_values=true,
-          legend_min=true,
-          legend_max=true,
+          legend_min=false,
+          legend_max=false,
           legend_current=true,
           legend_total=false,
-          legend_avg=true,
+          legend_avg=false,
           legend_alignAsTable=true,
         )
         .addTarget(
@@ -60,6 +60,40 @@ dashboard.new(
     .addPanel(
       graphPanel.new(
           'started and finished spans',
+          span=6,
+          format='short',
+          fill=1,
+          min=0,
+          decimals=2,
+          datasource='prometheus',
+          legend_values=true,
+          legend_min=false,
+          legend_max=false,
+          legend_current=true,
+          legend_total=false,
+          legend_avg=false,
+          legend_alignAsTable=true,
+          height=400,
+        )
+        .addTarget(
+            prometheus.target(
+                "jaeger_standalone:jaeger:started_spans{}",
+            )
+        )
+        .addTarget(
+            prometheus.target(
+                "jaeger_standalone:jaeger:finished_spans{}",
+            )
+        )
+        .addTarget(
+            prometheus.target(
+                "jaeger_standalone:jaeger:finished_spans{}",
+            )
+        )
+    )
+    .addPanel(
+      graphPanel.new(
+          'started - finished',
           span=6,
           format='short',
           fill=0,
@@ -76,12 +110,7 @@ dashboard.new(
         )
         .addTarget(
             prometheus.target(
-                "jaeger_standalone:jaeger:started_spans{}",
-            )
-        )
-        .addTarget(
-            prometheus.target(
-                "jaeger_standalone:jaeger:finished_spans{}",
+                "sum(jaeger_standalone:jaeger:started_spans{}) - sum(jaeger_standalone:jaeger:finished_spans{})",
             )
         )
     )
