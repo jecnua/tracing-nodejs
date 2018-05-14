@@ -4,6 +4,8 @@ docker network create nodejs_tracing
 
 docker stop jaeger
 docker stop tracing-nodejs
+docker stop prometheus
+docker stop grafana
 
 # Port to call 16686
 docker run \
@@ -30,11 +32,14 @@ docker run \
   -p 8000:8000 \
   jecnua/tracing-nodejs:dev-latest
 
+docker stop prometheus
 docker run --rm -d -p 9090:9090 \
+    --name=prometheus \
     --net nodejs_tracing \
     -v "$(pwd)"/prometheus.yml:/etc/prometheus/prometheus.yml \
-    prom/prometheus
+    prom/prometheus:v2.2.1
 
+docker stop grafana
 docker run -d --rm --name=grafana --net nodejs_tracing \
   -e 'GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel' \
   -e 'GF_AUTH_ANONYMOUS_ENABLED=true' \
