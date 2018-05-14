@@ -24,7 +24,7 @@
                   "rgba(237, 129, 40, 0.89)",
                   "#d44a3a"
                ],
-               "datasource": "prometheus",
+               "datasource": "prometheus_jaeger",
                "format": "none",
                "gauge": {
                   "maxValue": 100,
@@ -101,7 +101,7 @@
                   "rgba(237, 129, 40, 0.89)",
                   "#d44a3a"
                ],
-               "datasource": "prometheus",
+               "datasource": "prometheus_jaeger",
                "format": "none",
                "gauge": {
                   "maxValue": 100,
@@ -174,7 +174,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "prometheus",
+               "datasource": "prometheus_jaeger",
                "fill": 1,
                "gridPos": { },
                "height": 400,
@@ -269,7 +269,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "prometheus",
+               "datasource": "prometheus_jaeger",
                "fill": 0,
                "gridPos": { },
                "id": 5,
@@ -393,6 +393,6 @@
       ]
    },
    "timezone": "browser",
-   "title": "Jaeger standalone metrics",
+   "title": "Jaeger standalone all-in-one (docker)",
    "version": 0
 }
