@@ -14,6 +14,10 @@
 This repo contains a simple test of jaeger tracing with a nodejs express
 application.
 
+## Personal notes
+
+- [jaeger notes](https://go-talks.appspot.com/github.com/jecnua/notes-presentations/notes/observability/tracing/03-jaeger.article)
+
 ## Scope
 
 I am trying to test Jaeger tracing with node.js automatic instrumentation of the express framework. I successfully attached the tracing to express and calls to paths are traced correctly.
