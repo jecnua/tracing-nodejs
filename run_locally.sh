@@ -22,7 +22,7 @@ docker run \
   -p 16686:16686 \
   -p 14268:14268 \
   -p 9411:9411 \
-  jaegertracing/all-in-one:latest
+  jaegertracing/all-in-one:1.5.0
 
 docker run \
   --rm \
