@@ -1,12 +1,12 @@
 # Tracing with Jaeger in nodejs express
 
 [![Build Status](https://travis-ci.org/jecnua/tracing-nodejs.svg?branch=master)](https://travis-ci.org/jecnua/tracing-nodejs)
+![](https://img.shields.io/maintenance/yes/2019.svg)
 [![](https://images.microbadger.com/badges/image/jecnua/tracing-nodejs.svg)](https://microbadger.com/images/jecnua/tracing-nodejs "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/jecnua/tracing-nodejs.svg)](https://microbadger.com/images/jecnua/tracing-nodejs "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/commit/jecnua/tracing-nodejs.svg)](https://microbadger.com/images/jecnua/tracing-nodejs "Get your own commit badge on microbadger.com")
 [![](https://images.microbadger.com/badges/license/jecnua/tracing-nodejs.svg)](https://microbadger.com/images/jecnua/tracing-nodejs "Get your own license badge on microbadger.com")
 
-![status](https://img.shields.io/badge/project_status-active-green.svg)
 ![ubuntu-1604](https://img.shields.io/badge/ubuntu-18.04-green.svg)
 ![node.js](https://img.shields.io/badge/node.js-v8.10.0-green.svg)
 ![framework](https://img.shields.io/badge/express-v4.16.3-green.svg)
@@ -31,7 +31,11 @@ Run:
     make
     ./run_locally.sh
 
-Check traces at: http://localhost:16686/
+Check traces at: http://localhost:16686/ or prometheus at http://localhost:9090/graph?g0.range_input=1h&g0.expr=jaeger_collector_spans_received_total&g0.tab=0
+
+Clean everything with:
+
+    ./clean.sh
 
 ## Test
 
@@ -48,11 +52,7 @@ To run dgoss test locally:
 - https://github.com/opentracing-contrib/javascript-express
 - https://github.com/jaegertracing/jaeger-client-python
 
-## Knowns issue
-
-<trace-without-root-span> when calling all url togheter.
-
 ## TODO
 
-- Add monitoring with grafana and prometheus
+- Add monitoring with grafana
 - Run in in k8s
