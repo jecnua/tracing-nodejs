@@ -1,17 +1,17 @@
 #!/bin/sh
 
-docker network create nodejs_tracing
+# docker network create host
 
-docker stop jaeger
-docker stop tracing-nodejs
-docker stop prometheus
-docker stop grafana
+docker rm -f jaeger
+docker rm -f tracing-nodejs
+docker rm -f prometheus
+docker rm -f grafana
 
 # Port to call 16686
 docker run \
   --rm \
   -d \
-  --net nodejs_tracing \
+  --net host \
   --name jaeger \
   -e \
   COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
@@ -24,23 +24,15 @@ docker run \
   -p 9411:9411 \
   jaegertracing/all-in-one:1.5.0
 
-docker run \
-  --rm \
-  -d \
-  --net nodejs_tracing \
-  --name tracing-nodejs \
-  -p 8000:8000 \
-  jecnua/tracing-nodejs:dev-latest
-
-docker stop prometheus
+docker rm -f prometheus
 docker run --rm -d -p 9090:9090 \
     --name=prometheus \
-    --net nodejs_tracing \
+    --net host \
     -v "$(pwd)"/prometheus.yml:/etc/prometheus/prometheus.yml \
     prom/prometheus:v2.2.1
 
-docker stop grafana
-docker run -d --rm --name=grafana --net nodejs_tracing \
+docker rm -f grafana
+docker run -d --rm --name=grafana --net host \
   -e 'GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel' \
   -e 'GF_AUTH_ANONYMOUS_ENABLED=true' \
   -e 'GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer' \
@@ -52,17 +44,18 @@ docker run -d --rm --name=grafana --net nodejs_tracing \
   -p 3000:3000 \
   grafana/grafana:5.1.2
 
-# docker run \
-#   --rm \
-#   -it \
-#   --net nodejs_tracing \
-#   -v "$(pwd)"/src:/src/ \
-#   --name tracing-nodejs \
-#   -p 8000:8000 \
-#   jecnua/tracing-nodejs:dev-latest
+sleep 5
 
+docker run \
+  --rm \
+  -d \
+  --net host \
+  -v "$(pwd)"/src:/src/ \
+  --name tracing-nodejs \
+  -p 8000:8000 \
+  jecnua/tracing-nodejs:dev-latest
 
-# sleep 10
+sleep 5
 
 curl localhost:8000/
 curl localhost:8000/home

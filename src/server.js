@@ -6,7 +6,8 @@ var config = {
   'serviceName': 'test-nodejs-jaeger-tracing',
   'reporter': {
     'logSpans': true,
-    'agentHost': 'docker.for.mac.localhost',
+    // 'agentHost': 'docker.for.mac.localhost', # Decomment this to work on MAC
+    'agentHost': 'localhost',
     'agentPort': 6832
   },
   'sampler': {

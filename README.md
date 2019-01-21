@@ -24,14 +24,6 @@ I am trying to test Jaeger tracing with node.js automatic instrumentation of the
 
 The next step will be to try and see how to create span and attach them to existing traces coming from other services.
 
-## Resources
-
-- [http://label-schema.org/rc1/](http://label-schema.org/rc1/)
-- https://www.npmjs.com/package/jaeger-client
-- https://github.com/jaegertracing/jaeger-client-node
-- https://github.com/opentracing-contrib/javascript-express
-- https://github.com/jaegertracing/jaeger-client-python
-
 ## Demo
 
 Run:
@@ -39,12 +31,22 @@ Run:
     make
     ./run_locally.sh
 
+Check traces at: http://localhost:16686/
+
 ## Test
 
-Run:
+To run dgoss test locally:
 
     make
     ./test_locally.sh
+
+## Resources
+
+- [http://label-schema.org/rc1/](http://label-schema.org/rc1/)
+- https://www.npmjs.com/package/jaeger-client
+- https://github.com/jaegertracing/jaeger-client-node
+- https://github.com/opentracing-contrib/javascript-express
+- https://github.com/jaegertracing/jaeger-client-python
 
 ## Knowns issue
 
