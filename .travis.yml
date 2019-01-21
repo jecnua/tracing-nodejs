@@ -10,7 +10,7 @@ language:
 
 # Note 1: Update but never upgrade
 before_install:
-- gem install travis --no-ri
+- gem install travis
 - sudo apt-get update
 - curl -L https://goss.rocks/install | sudo sh
 - make
