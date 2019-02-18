@@ -7,7 +7,7 @@
 [![](https://images.microbadger.com/badges/commit/jecnua/tracing-nodejs.svg)](https://microbadger.com/images/jecnua/tracing-nodejs "Get your own commit badge on microbadger.com")
 [![](https://images.microbadger.com/badges/license/jecnua/tracing-nodejs.svg)](https://microbadger.com/images/jecnua/tracing-nodejs "Get your own license badge on microbadger.com")
 
-![ubuntu-1604](https://img.shields.io/badge/ubuntu-18.04-green.svg)
+![ubuntu-1804](https://img.shields.io/badge/ubuntu-18.04-green.svg)
 ![node.js](https://img.shields.io/badge/node.js-v8.10.0-green.svg)
 ![framework](https://img.shields.io/badge/express-v4.16.3-green.svg)
 
