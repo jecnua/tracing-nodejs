@@ -13,10 +13,13 @@ before_install:
 - gem install travis
 - sudo apt-get update
 - curl -L https://goss.rocks/install | sudo sh
+- wget https://github.com/hadolint/hadolint/releases/download/v1.16.0/hadolint-Linux-x86_64
+- chmod 700 hadolint-Linux-x86_64
 - make
 
 script:
 - echo "y" | travis lint
+- ./hadolint-Linux-x86_64 Dockerfile
 - ./test_travis.sh # Will also test with shellcheck - https://github.com/koalaman/shellcheck#travis-ci
 
 notifications:

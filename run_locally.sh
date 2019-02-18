@@ -1,5 +1,8 @@
 #!/bin/sh
 
+JAEGER_VERSION='1.10.0'
+PROMETHEUS_VERSION='v2.7.1'
+
 # docker network create host
 
 docker rm -f jaeger
@@ -22,14 +25,17 @@ docker run \
   -p 16686:16686 \
   -p 14268:14268 \
   -p 9411:9411 \
-  jaegertracing/all-in-one:1.9.0
+  "jaegertracing/all-in-one:$JAEGER_VERSION"
 
 docker rm -f prometheus
-docker run --rm -d -p 9090:9090 \
+docker run \
+    --rm \
+    -d \
+    -p 9090:9090 \
     --name=prometheus \
     --net host \
     -v "$(pwd)"/prometheus.yml:/etc/prometheus/prometheus.yml \
-    prom/prometheus:v2.6.1
+    "prom/prometheus:$PROMETHEUS_VERSION"
 
 # docker rm -f grafana
 # docker run -d --rm --name=grafana --net host \

@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.5.0
+
+### BREAKING CHANGES
+
+### Features
+
+- Updated Jaeger to version 0.10.0
+- Updated prometheus to v2.7.1
+- Linted dockerfile to follow best practices
+- Added hadolint to travis
+
+### Changes
+
+### Bugfixes
+
+### Known bugs
+
 ## 0.4.0
 
 ### BREAKING CHANGES
