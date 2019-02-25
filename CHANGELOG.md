@@ -1,6 +1,18 @@
 # Changelog
 
-## 0.5.1 (unreleased)
+## 0.6.0 (UNRELEASED)
+
+### BREAKING CHANGES
+
+### Features
+
+### Changes
+
+### Bugfixes
+
+### Known bugs
+
+## 0.5.1
 
 - Updated Jaeger to version 0.10.1
 
