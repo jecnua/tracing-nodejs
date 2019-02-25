@@ -10,6 +10,11 @@ release: docker_build docker_push output
 	git push --tags
 	@echo Remember to update the VERSION now
 
+clean:
+	- docker rm -f jaeger
+	- docker rm -f tracing-nodejs
+	- docker rm -f prometheus
+
 gen-env:
 	./run.sh
 

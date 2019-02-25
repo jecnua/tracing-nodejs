@@ -1,6 +1,6 @@
 #!/bin/sh
 
-JAEGER_VERSION='1.10.0'
+JAEGER_VERSION='1.10.1'
 PROMETHEUS_VERSION='v2.7.1'
 
 # docker network create host
@@ -40,7 +40,7 @@ docker run \
 # docker rm -f grafana
 # docker run -d --rm --name=grafana --net host \
 #   -e 'GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel' \
-#   -e 'GF_AUTH_ANONYMOUS_ENABLED=true' \
+#   -e 'GF_AUTH_ANONYMOUS_ENABLJAEGER_VERSIONED=true' \
 #   -e 'GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer' \
 #   -e 'GF_SECURITY_ADMIN_PASSWORD=admin' \
 #   -e 'GF_ANALYTICS_REPORTING_ENABLED=false' \

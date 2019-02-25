@@ -10,13 +10,14 @@
 ![ubuntu-1804](https://img.shields.io/badge/ubuntu-18.04-green.svg)
 ![node.js](https://img.shields.io/badge/node.js-v8.10.0-green.svg)
 ![framework](https://img.shields.io/badge/express-v4.16.3-green.svg)
+![jaeger](https://img.shields.io/badge/jaeger-v1.10.1-green.svg)
 
 This repo contains a simple test of jaeger tracing with a nodejs express
 application.
 
 ## Personal notes
 
-- [jaeger notes](https://go-talks.appspot.com/github.com/jecnua/notes-presentations/notes/observability/tracing/03-jaeger.article)
+-   [jaeger notes](https://go-talks.appspot.com/github.com/jecnua/notes-presentations/notes/observability/tracing/03-jaeger.article)
 
 ## Scope
 
@@ -31,7 +32,7 @@ Run:
     make
     ./run_locally.sh
 
-Check traces at: http://localhost:16686/ or prometheus at http://localhost:9090/graph?g0.range_input=1h&g0.expr=jaeger_collector_spans_received_total&g0.tab=0
+Check traces at: <http://localhost:16686/> or prometheus at <http://localhost:9090/graph?g0.range_input=1h&g0.expr=jaeger_collector_spans_received_total&g0.tab=0>
 
 Clean everything with:
 
@@ -46,14 +47,14 @@ To run dgoss test locally:
 
 ## Resources
 
-- [http://label-schema.org/rc1/](http://label-schema.org/rc1/)
-- https://www.npmjs.com/package/jaeger-client
-- https://github.com/jaegertracing/jaeger-client-node
-- https://github.com/opentracing-contrib/javascript-express
-- https://github.com/jaegertracing/jaeger-client-python
+-   <http://label-schema.org/rc1/>
+-   <https://www.npmjs.com/package/jaeger-client>
+-   <https://github.com/jaegertracing/jaeger-client-node>
+-   <https://github.com/opentracing-contrib/javascript-express>
+-   <https://github.com/jaegertracing/jaeger-client-python>
 
 ## TODO
 
-- Add monitoring with grafana
-- Run in in k8s
-- Change all the docker for mac references
+-   Add monitoring with grafana
+-   Run in in k8s
+-   Change all the docker for mac references
