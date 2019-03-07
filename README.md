@@ -10,7 +10,7 @@
 ![ubuntu-1804](https://img.shields.io/badge/ubuntu-18.04-green.svg)
 ![node.js](https://img.shields.io/badge/node.js-v8.10.0-green.svg)
 ![framework](https://img.shields.io/badge/express-v4.16.3-green.svg)
-![jaeger](https://img.shields.io/badge/jaeger-v1.10.1-green.svg)
+![jaeger](https://img.shields.io/badge/jaeger-v1.11.0-green.svg)
 
 This repo contains a simple test of jaeger tracing with a nodejs express
 application.

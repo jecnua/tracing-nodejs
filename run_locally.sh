@@ -1,7 +1,7 @@
 #!/bin/sh
 
-JAEGER_VERSION='1.10.1'
-PROMETHEUS_VERSION='v2.7.1'
+JAEGER_VERSION='1.11.0'
+PROMETHEUS_VERSION='v2.7.2'
 
 # docker network create host
 
