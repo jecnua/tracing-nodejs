@@ -6,6 +6,8 @@
 
 ### Features
 
+- Fixed grafana
+
 ### Changes
 
 ### Bugfixes
@@ -14,11 +16,11 @@
 
 ## 0.5.2
 
-- Updated Jaeger to version 0.11.0
-
 ### BREAKING CHANGES
 
 ### Features
+
+- Updated Jaeger to version 0.11.0
 
 ### Changes
 

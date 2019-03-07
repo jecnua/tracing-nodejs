@@ -13,5 +13,5 @@ datasources:
    name: 'prometheus_jaeger'             # name of the datasource
    org_id: 1                             # id of the organization to tie this datasource to
    type: 'prometheus'                    # type of the data source
-   url: 'http://docker.for.mac.localhost:9090' # url of the prom instance
+   url: 'http://localhost:9090' # url of the prom instance
    version: 1                            # well, versioning

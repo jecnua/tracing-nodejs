@@ -55,6 +55,6 @@ To run dgoss test locally:
 
 ## TODO
 
--   Add monitoring with grafana
+-   Fix jsonnet
 -   Run in in k8s
 -   Change all the docker for mac references
