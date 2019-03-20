@@ -7,6 +7,8 @@
 ### Features
 
 - Fixed grafana
+- Updated grafana to 6.0.2
+- Updated prometheus to 2.8.0
 
 ### Changes
 

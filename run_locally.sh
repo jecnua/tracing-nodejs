@@ -1,14 +1,15 @@
 #!/bin/sh
 
 JAEGER_VERSION='1.11.0'
-PROMETHEUS_VERSION='v2.7.2'
+PROMETHEUS_VERSION='v2.8.0'
+GRAFANA_VERSION='6.0.2'
 
 # docker network create host
 
 docker rm -f jaeger
-docker rm -f tracing-nodejs
 docker rm -f prometheus
 docker rm -f grafana
+docker rm -f tracing-nodejs
 
 # Port to call 16686
 docker run \
@@ -27,7 +28,6 @@ docker run \
   -p 9411:9411 \
   "jaegertracing/all-in-one:$JAEGER_VERSION"
 
-docker rm -f prometheus
 docker run \
     --rm \
     -d \
@@ -37,7 +37,6 @@ docker run \
     -v "$(pwd)"/prometheus.yml:/etc/prometheus/prometheus.yml \
     "prom/prometheus:$PROMETHEUS_VERSION"
 
-docker rm -f grafana
 docker run -d --rm \
   --name=grafana \
   --net host \
@@ -50,7 +49,7 @@ docker run -d --rm \
   -v "$PWD"/jaeger.json:/var/lib/grafana/dashboards/jaeger.json:ro \
   -v "$PWD"/prom.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro \
   -p 3000:3000 \
-  grafana/grafana:6.0.1
+  "grafana/grafana:$GRAFANA_VERSION"
 
 sleep 5
 
@@ -66,7 +65,11 @@ docker run \
 sleep 5
 
 curl localhost:8000/
+echo ""
 curl localhost:8000/home
+echo ""
 curl localhost:8000/child
+echo ""
 curl localhost:8000/child2
+echo ""
 curl localhost:8000/error
