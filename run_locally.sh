@@ -1,8 +1,8 @@
 #!/bin/sh
 
 JAEGER_VERSION='1.11.0'
-PROMETHEUS_VERSION='v2.8.0'
-GRAFANA_VERSION='6.0.2'
+PROMETHEUS_VERSION='v2.9.0'
+GRAFANA_VERSION='6.1.3'
 
 # docker network create host
 
