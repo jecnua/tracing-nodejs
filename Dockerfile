@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN mkdir -p /src
 
@@ -6,10 +6,11 @@ COPY package.json package.json
 COPY /src/* /src/
 COPY Dockerfile /Dockerfile
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update \
-  && apt-get install --no-install-recommends -y npm=3.5.2-0ubuntu4 \
-    nodejs=8.10.0~dfsg-2ubuntu0.4 curl=7.58.0-2ubuntu3.6 wget=1.19.4-1ubuntu2.1 \
-    nano=2.9.3-2 build-essential=12.4ubuntu1 \
+  && apt-get install --no-install-recommends -y \
+    npm nodejs curl wget nano make build-essential \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && npm config set strict-ssl false \
